@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="fluxograma-aluguel"/>
+        <attribute name="authors" value="DES-MH"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2025-04-02 07:15:53 PM"/>
+        <attribute name="created" value="REVTLU1IO1NONTEyLTEyNDI5ODE7MjAyNS0wNC0wMjsiMDM6NTc6NTEgIjsyMzI2"/>
+        <attribute name="edited" value="REVTLU1IO1NONTEyLTEyNDI5ODE7MjAyNS0wNC0wMjsiMDM6NTg6MDkgIjsxOzI0Mzg="/>
+        <attribute name="edited" value="eXloYWdvd2luO0RFU0tUT1AtSVVISUlCQzsyMDI1LTA0LTAyOzA3OjE1OjUzIFBNOzE7MzQ3MQ=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="diariaCarro" type="Integer" array="False" size=""/>
+            <declare name="kmCarroPercorridos, contaDiariaCarro, contaKmCarroPercorridos, total" type="Real" array="False" size=""/>
+            <declare name="carroEscolhido" type="String" array="False" size=""/>
+            <output expression="&quot;Qual &#233; seu carro (Popular - Luxo)?&quot;" newline="True"/>
+            <input variable="carroEscolhido"/>
+            <if expression="carroEscolhido == &quot;Popular&quot;">
+                <then>
+                    <output expression="&quot;Quantos dias voc&#234; ficou com o carro?&quot;" newline="True"/>
+                    <input variable="diariaCarro"/>
+                    <assign variable="contaDiariaCarro" expression="diariaCarro * 90"/>
+                    <output expression="&quot;Voc&#234; ira gastar em di&#225;ria: &quot; &amp;contaDiariaCarro" newline="True"/>
+                    <output expression="&quot;Quantos kms voc&#234; percorreu com o carro?&quot;" newline="True"/>
+                    <input variable="kmCarroPercorridos"/>
+                    <if expression="kmCarroPercorridos &lt;= 100">
+                        <then>
+                            <assign variable="contaKmCarroPercorridos" expression="kmCarroPercorridos * 0.20"/>
+                            <output expression="&quot;Andando: &quot; &amp;kmCarroPercorridos&amp; &quot;Kms, voc&#234; ter&#225; gastado: &quot; &amp;contaKmCarroPercorridos" newline="True"/>
+                        </then>
+                        <else>
+                            <assign variable="contaKmCarroPercorridos" expression="kmCarroPercorridos * 0.10"/>
+                            <output expression="&quot;Andando: &quot; &amp;kmCarroPercorridos&amp; &quot;Kms, voc&#234; ter&#225; gastado: &quot; &amp;contaKmCarroPercorridos" newline="True"/>
+                        </else>
+                    </if>
+                    <assign variable="total" expression="contaDiariaCarro + contaKmCarroPercorridos"/>
+                    <output expression="&quot;No total ser&#225; gasto: &quot; &amp;total &amp; &quot; Reais&quot;" newline="True"/>
+                </then>
+                <else>
+                    <if expression="carroEscolhido == &quot;Luxo&quot;">
+                        <then>
+                            <output expression="&quot;Quantos dias voc&#234; ficou com o carro?&quot;" newline="True"/>
+                            <input variable="diariaCarro"/>
+                            <assign variable="contaDiariaCarro" expression="diariaCarro * 150"/>
+                            <output expression="&quot;Voc&#234; ira gastar em di&#225;ria: &quot; &amp;contaDiariaCarro" newline="True"/>
+                            <output expression="&quot;Quantos kms voc&#234; percorreu com o carro?&quot;" newline="True"/>
+                            <input variable="kmCarroPercorridos"/>
+                            <if expression="kmCarroPercorridos &lt;= 200">
+                                <then>
+                                    <assign variable="contaKmCarroPercorridos" expression="kmCarroPercorridos * 0.30"/>
+                                    <output expression="&quot;Andando: &quot; &amp;kmCarroPercorridos&amp; &quot;Kms, voc&#234; ter&#225; gastado: &quot; &amp;contaKmCarroPercorridos" newline="True"/>
+                                </then>
+                                <else>
+                                    <assign variable="contaKmCarroPercorridos" expression="kmCarroPercorridos * 0.25"/>
+                                    <output expression="&quot;Andando: &quot; &amp;kmCarroPercorridos&amp; &quot;Kms, voc&#234; ter&#225; gastado: &quot; &amp;contaKmCarroPercorridos" newline="True"/>
+                                </else>
+                            </if>
+                            <assign variable="total" expression="contaDiariaCarro + contaKmCarroPercorridos"/>
+                            <output expression="&quot;No total ser&#225; gasto: &quot; &amp;total &amp; &quot; Reais&quot;" newline="True"/>
+                        </then>
+                        <else>
+                            <output expression="&quot;Tipo de carro inv&#225;lido! Use Popular ou Luxo.&quot;" newline="True"/>
+                        </else>
+                    </if>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>

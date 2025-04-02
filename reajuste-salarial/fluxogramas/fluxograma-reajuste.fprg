@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="fluxograma-reajuste"/>
+        <attribute name="authors" value="yyhagowin"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2025-04-02 07:28:44 PM"/>
+        <attribute name="created" value="eXloYWdvd2luO0RFU0tUT1AtSVVISUlCQzsyMDI1LTA0LTAyOzA3OjI4OjI3IFBNOzMzNjg="/>
+        <attribute name="edited" value="eXloYWdvd2luO0RFU0tUT1AtSVVISUlCQzsyMDI1LTA0LTAyOzA3OjI4OjQ0IFBNOzE7MzQ3NQ=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="genero" type="String" array="False" size=""/>
+            <declare name="tempo" type="Integer" array="False" size=""/>
+            <declare name="salarioAtual, reajuste, novoSalario" type="Real" array="False" size=""/>
+            
+            <output expression="&quot;Digite o g&#234;nero (Mulher/Homem): &quot;" newline="True"/>
+            <input variable="genero"/>
+            
+            <output expression="&quot;Digite o tempo de empresa (anos): &quot;" newline="True"/>
+            <input variable="tempo"/>
+            
+            <output expression="&quot;Digite o sal&#225;rio atual: &quot;" newline="True"/>
+            <input variable="salarioAtual"/>
+            
+            <if expression="genero == &quot;Mulher&quot;">
+                <then>
+                    <if expression="tempo &lt; 5">
+                        <then>
+                            <assign variable="reajuste" expression="4"/>
+                        </then>
+                        <else>
+                            <if expression="tempo &lt;= 10">
+                                <then>
+                                    <assign variable="reajuste" expression="7"/>
+                                </then>
+                                <else>
+                                    <if expression="tempo &gt;= 15 AND tempo &lt;= 20">
+                                        <then>
+                                            <assign variable="reajuste" expression="12"/>
+                                        </then>
+                                        <else>
+                                            <if expression="tempo &gt; 20">
+                                                <then>
+                                                    <assign variable="reajuste" expression="23"/>
+                                                </then>
+                                                <else>
+                                                    <assign variable="reajuste" expression="0"/>
+                                                </else>
+                                            </if>
+                                        </else>
+                                    </if>
+                                </else>
+                            </if>
+                        </else>
+                    </if>
+                </then>
+                <else>
+                    <if expression="genero == &quot;Homem&quot;">
+                        <then>
+                            <if expression="tempo &lt; 5">
+                                <then>
+                                    <assign variable="reajuste" expression="3"/>
+                                </then>
+                                <else>
+                                    <if expression="tempo &lt;= 15">
+                                        <then>
+                                            <assign variable="reajuste" expression="8"/>
+                                        </then>
+                                        <else>
+                                            <if expression="tempo &gt;= 20 AND tempo &lt;= 30">
+                                                <then>
+                                                    <assign variable="reajuste" expression="14"/>
+                                                </then>
+                                                <else>
+                                                    <if expression="tempo &gt; 30">
+                                                        <then>
+                                                            <assign variable="reajuste" expression="25"/>
+                                                        </then>
+                                                        <else>
+                                                            <assign variable="reajuste" expression="0"/>
+                                                        </else>
+                                                    </if>
+                                                </else>
+                                            </if>
+                                        </else>
+                                    </if>
+                                </else>
+                            </if>
+                        </then>
+                        <else>
+                            <output expression="&quot;G&#234;nero inv&#225;lido! Use Mulher ou Homem.&quot;" newline="True"/>
+                        </else>
+                    </if>
+                </else>
+            </if>
+            
+            <assign variable="novoSalario" expression="salarioAtual * (1 + reajuste / 100)"/>
+            
+            <output expression="&quot;Reajuste aplicado: &quot; &amp; reajuste &amp; &quot;%&quot;" newline="True"/>
+            <output expression="&quot;Novo sal&#225;rio: R$ &quot; &amp; novoSalario" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>
