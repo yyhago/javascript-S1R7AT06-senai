@@ -1,3 +1,4 @@
+// Declaração das variáveis
 let genero = prompt("Qual é seu genero? (Homem ou Mulher)");
 let tempo = prompt("Quanto tempo de empresa?");
 
@@ -6,11 +7,11 @@ let salarioAtual = prompt("Informe seu salario atual");
 let reajuste;
 let novoSalario;
 
-
+// Verificação se o "tempo" e o "salarioAtual" são validos
 if (isNaN(tempo) || isNaN(salarioAtual)) {
     alert("Insirá valores válidos por favor.");
+// Verifica se o usuário digitou a string "Mulher" corretamente.
 } else if (genero == "Mulher") {
-
     if (tempo < 5) {
         reajuste = 4;
     } else if (tempo < 10) {
@@ -22,7 +23,7 @@ if (isNaN(tempo) || isNaN(salarioAtual)) {
     } else {
         reajuste = 0;
     }
-
+// Verifica se o usuário digitou a string "Homem" corretamente.
 } else if (genero == "Homem") {
     if (tempo < 5) {
         reajuste = 3;
@@ -35,9 +36,8 @@ if (isNaN(tempo) || isNaN(salarioAtual)) {
     } else {
         reajuste = 0;
     }
-
 }
 
-novoSalario = salarioAtual * (1 + (reajuste / 100));
+// Calcula o novo salário aplicando o reajuste percentual ao salário atual.
+novoSalario = salarioAtual * (1 + (reajuste / 100)); //  a expressão "1 +..." representa o valor total após o aumento.
 alert(`Reajuste aplicado: ${reajuste} % | Novo salário: ${novoSalario}`);
-
